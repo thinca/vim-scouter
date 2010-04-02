@@ -19,14 +19,14 @@ CHANGELOG			|scouter-changelog|
 ==============================================================================
 INTRODUCTION					*scouter-introduction*
 
-*scouter* is a Vim plugin to measures your Battle Power.
+*scouter* is a Vim plugin to measure your Battle Power.
 
 ------------------------------------------------------------------------------
 WHAT IS BATTLE POWER?				*scouter-battle-power*
 
-Battle Power is one of a parameter of force of vimmer.  It is measured by
-number of lines of vimrc.  However, accurately
-- Except a empty line and comment line.
+Battle Power is one of parameters of force of vimmer.  It is measured by
+the number of the lines of vimrc.  However, accurately
+- Except an empty line and a comment line.
 - The lines of |line-coninuation| are counted as one line.
 
 Battle Power was propounded by ujihisa(http://ujihisa.blogspot.com/).
@@ -44,7 +44,7 @@ Scouter([{file-patterns}, ...])			*Scouter()*
 			omitted, $MYVIMRC is used.
 
 ScouterVerbose([{file-patterns}, ...])		*ScouterVerbose()*
-			Like |Scouter()|, but this function return a
+			Like |Scouter()|, but this function returns a
 			|Dictionary| that has the file name as key and has the
 			Battle Power as value.
 
