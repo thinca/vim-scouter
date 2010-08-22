@@ -1,5 +1,5 @@
 " Measures Battle Power of a vimmer.
-" Version: 0.1.0
+" Version: 0.1.1
 " Author : thinca <thinca+vim@gmail.com>
 " License: Creative Commons Attribution 2.1 Japan License
 "          <http://creativecommons.org/licenses/by/2.1/jp/deed.en>
@@ -37,7 +37,8 @@ function! s:files(files)  " {{{2
     endfor
     return files
   endif
-  return split(glob(a:files), "\n")
+  return split(glob(a:files . (isdirectory(expand(a:files)) ? '/**/*.vim'
+  \                                                         : '')), "\n")
 endfunction
 
 
