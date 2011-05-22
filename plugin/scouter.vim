@@ -14,20 +14,16 @@ set cpo&vim
 
 
 " functions  {{{1
-function! s:sum(list)  " {{{2
+function! s:sum(list)
   return eval(join(a:list, '+'))
 endfunction
 
-
-
-function! s:measure(file)  " {{{2
+function! s:measure(file)
   let pat = '^\s*$\|^\s*["\\]'
   return len(filter(readfile(a:file), 'v:val !~ pat'))
 endfunction
 
-
-
-function! s:files(files)  " {{{2
+function! s:files(files)
   if type(a:files) == type([])
     let files = []
     for f in a:files
@@ -39,9 +35,7 @@ function! s:files(files)  " {{{2
   \                                                         : '')), "\n")
 endfunction
 
-
-
-function! s:show(verbose, ...)  " {{{2
+function! s:show(verbose, ...)
   let res = call('ScouterVerbose', a:000)
   let sum = s:sum(values(res))
   if a:verbose
@@ -53,9 +47,7 @@ function! s:show(verbose, ...)  " {{{2
   echo sum
 endfunction
 
-
-
-function! ScouterVerbose(...)  " {{{2
+function! ScouterVerbose(...)
   let res = {}
   for f in s:files(a:0 ? a:000 : $MYVIMRC)
     let res[f] = s:measure(f)
@@ -63,9 +55,7 @@ function! ScouterVerbose(...)  " {{{2
   return res
 endfunction
 
-
-
-function! Scouter(...)  " {{{2
+function! Scouter(...)
   return s:sum(values(call('ScouterVerbose', a:000)))
 endfunction
 
