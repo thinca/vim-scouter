@@ -21,10 +21,8 @@ endfunction
 
 
 function! s:measure(file)  " {{{2
-  let pat = '^\s*$\|^\s*"'
-  let lines = readfile(a:file)
-  let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
-  return len(filter(lines,'v:val !~ pat'))
+  let pat = '^\s*$\|^\s*["\\]'
+  return len(filter(readfile(a:file), 'v:val !~ pat'))
 endfunction
 
 
