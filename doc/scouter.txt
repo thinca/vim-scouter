@@ -39,11 +39,11 @@ INTERFACE					*scouter-interface*
 FUNCTIONS					*scouter-functions*
 
 Scouter([{file-pattern}, ...])			*Scouter()*
-			Measures the Battle Power.  {file-pattern} is
-			expanded by |glob()|.  If {file-pattern} is a
-			directory, '/**/*.vim' is added to the end of the
-			pattern.  If {file-pattern} is omitted, $MYVIMRC is
-			used.
+			Measures the Battle Power and return it.
+			{file-pattern} is expanded by |glob()|.  If
+			{file-pattern} is a directory, '/**/*.vim' is added to
+			the end of the pattern.  If {file-pattern} is omitted,
+			$MYVIMRC is used.
 
 ScouterVerbose([{file-pattern}, ...])		*ScouterVerbose()*
 			Like |Scouter()|, but this function returns a
