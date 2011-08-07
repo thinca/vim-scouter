@@ -73,6 +73,10 @@ COMMANDS					*scouter-commands*
 ==============================================================================
 CHANGELOG					*scouter-changelog*
 
+x.x.x	xxxx-xx-xx
+	- |Scouter()| accepts |List| of source lines.
+	- |:Scouter| accepts [range].
+
 0.1.2	2011-05-22
 	- Optimized.
 
