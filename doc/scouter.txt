@@ -38,17 +38,24 @@ INTERFACE					*scouter-interface*
 ------------------------------------------------------------------------------
 FUNCTIONS					*scouter-functions*
 
-Scouter([{file-pattern}, ...])			*Scouter()*
+Scouter([{arg}, ...])				*Scouter()*
 			Measures the Battle Power and return it.
+			An {arg} is a {file-pattern} or {source}.
+			If {arg} is a string, it is a {file-pattern}.
 			{file-pattern} is expanded by |glob()|.  If
 			{file-pattern} is a directory, '/**/*.vim' is added to
-			the end of the pattern.  If {file-pattern} is omitted,
-			$MYVIMRC is used.
+			the end of the pattern.
+			If {arg} is a |List|, it is {source}.  {source} is
+			source of Vim script.
+			If {arg} is omitted, $MYVIMRC is used as
+			{file-pattern}.
 
-ScouterVerbose([{file-pattern}, ...])		*ScouterVerbose()*
+ScouterVerbose([{arg}, ...])			*ScouterVerbose()*
 			Like |Scouter()|, but this function returns a
 			|Dictionary| that has the file name as key and has the
 			Battle Power as value.
+			If an {arg} is {source}, the key become like "*1",
+			"*2".
 
 ------------------------------------------------------------------------------
 COMMANDS					*scouter-commands*
