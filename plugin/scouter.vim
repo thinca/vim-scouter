@@ -49,8 +49,17 @@ endfunction
 
 function! ScouterVerbose(...)
   let res = {}
-  for f in s:files(a:0 ? a:000 : $MYVIMRC)
-    let res[f] = s:measure(readfile(f))
+  let n = 1
+  for arg in a:0 ? a:000 : [$MYVIMRC]
+    if type(arg) == type([])
+      let res['*' . n] = s:measure(copy(arg))
+      let n += 1
+    elseif type(arg) == type('')
+      for file in s:files(arg)
+        let res[file] = s:measure(readfile(file))
+      endfor
+    endif
+    unlet arg
   endfor
   return res
 endfunction
