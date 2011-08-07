@@ -23,16 +23,23 @@ function! s:measure(lines)
   return len(filter(a:lines, 'v:val !~ pat'))
 endfunction
 
-function! s:files(files)
-  if type(a:files) == type([])
+function! s:glob(pattern)
+  if type(a:pattern) == type([])
     let files = []
-    for f in a:files
-      let files += s:files(f)
+    for f in a:pattern
+      let files += s:glob(f)
     endfor
     return files
   endif
-  return split(glob(a:files . (isdirectory(expand(a:files)) ? '/**/*.vim'
-  \                                                         : '')), "\n")
+  let pat = a:pattern
+  if isdirectory(pat)
+    let pat .= '/**/*.vim'
+  elseif filereadable(pat)
+    return [pat]
+  elseif getftype(pat) != ''  " exists, but unreadable.
+    return []
+  endif
+  return s:glob(split(glob(pat), "\n"))
 endfunction
 
 function! s:show(verbose, args, use_range, line1, line2)
@@ -59,7 +66,7 @@ function! ScouterVerbose(...)
       let res['*' . n] = s:measure(copy(arg))
       let n += 1
     elseif type(arg) == type('')
-      for file in s:files(arg)
+      for file in s:glob(arg)
         let res[file] = s:measure(readfile(file))
       endfor
     endif
