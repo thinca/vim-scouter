@@ -18,9 +18,9 @@ function! s:sum(list)
   return eval(join(a:list, '+'))
 endfunction
 
-function! s:measure(file)
+function! s:measure(lines)
   let pat = '^\s*$\|^\s*["\\]'
-  return len(filter(readfile(a:file), 'v:val !~ pat'))
+  return len(filter(a:lines, 'v:val !~ pat'))
 endfunction
 
 function! s:files(files)
@@ -50,7 +50,7 @@ endfunction
 function! ScouterVerbose(...)
   let res = {}
   for f in s:files(a:0 ? a:000 : $MYVIMRC)
-    let res[f] = s:measure(f)
+    let res[f] = s:measure(readfile(f))
   endfor
   return res
 endfunction
