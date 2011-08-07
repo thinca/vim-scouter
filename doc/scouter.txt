@@ -60,10 +60,11 @@ ScouterVerbose([{arg}, ...])			*ScouterVerbose()*
 ------------------------------------------------------------------------------
 COMMANDS					*scouter-commands*
 
-:Scouter [file-pattern] ...			*:Scouter*
+:[range]Scouter [file-pattern] ...		*:Scouter*
 			The command version of |Scouter()|.
+			If the [range] is given, measure the lines of range.
 
-:Scouter! [file-pattern] ...
+:[range]Scouter! [file-pattern] ...
 			Name and Battle Power of all files are displayed, and
 			the total is displayed at the end.
 
