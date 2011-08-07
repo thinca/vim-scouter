@@ -1,6 +1,6 @@
 *scouter.txt*	Measures Battle Power of a vimmer.
 
-Version: 0.1.2
+Version: 0.1.3
 Author : thinca <thinca+vim@gmail.com>
 License: Creative Commons Attribution 2.1 Japan License
          <http://creativecommons.org/licenses/by/2.1/jp/deed.en>
@@ -73,7 +73,7 @@ COMMANDS					*scouter-commands*
 ==============================================================================
 CHANGELOG					*scouter-changelog*
 
-x.x.x	xxxx-xx-xx
+0.1.3	2011-08-08
 	- |Scouter()| accepts |List| of source lines.
 	- |:Scouter| accepts [range].
 	- If the expanded path is a directory, re-expand it.
