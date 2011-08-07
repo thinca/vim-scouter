@@ -35,8 +35,12 @@ function! s:files(files)
   \                                                         : '')), "\n")
 endfunction
 
-function! s:show(verbose, ...)
-  let res = call('ScouterVerbose', a:000)
+function! s:show(verbose, args, use_range, line1, line2)
+  let args = copy(a:args)
+  if a:use_range
+    call add(args, getline(a:line1, a:line2))
+  endif
+  let res = call('ScouterVerbose', args)
   let sum = s:sum(values(res))
   if a:verbose
     for file in sort(keys(res))
@@ -71,8 +75,8 @@ endfunction
 
 
 " command  {{{1
-command! -bar -bang -nargs=* -complete=file
-\        Scouter call s:show(<bang>0, <f-args>)
+command! -bar -bang -nargs=* -range=0 -complete=file
+\        Scouter call s:show(<bang>0, [<f-args>], <count>, <line1>, <line2>)
 
 
 
