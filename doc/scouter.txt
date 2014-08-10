@@ -27,7 +27,7 @@ WHAT IS BATTLE POWER?				*scouter-battle-power*
 Battle Power is one of parameters of force of vimmer.  It is measured by
 the number of the lines of vimrc.  However, accurately
 - Except an empty line and a comment line.
-- The lines of |line-coninuation| are counted as one line.
+- The lines of |line-continuation| are counted as one line.
 
 Battle Power was propounded by ujihisa(http://ujihisa.blogspot.com/).
 
